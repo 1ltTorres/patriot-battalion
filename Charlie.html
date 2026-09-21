@@ -168,6 +168,16 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .staff-role-card .who .rank{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--blue);font-weight:600;background:var(--paper);padding:3px 8px;border-radius:6px;}
 .staff-role-card .who .name{font-weight:800;font-size:.94rem;}
 .staff-role-card p{margin:0;color:var(--ink-soft);font-size:.85rem;line-height:1.55;}
+.org-card{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
+.org-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(11,19,48,.35);}
+.cadet-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(4,24,95,.6);z-index:999;align-items:center;justify-content:center;padding:20px;}
+.cadet-modal-backdrop.open{display:flex;}
+.cadet-modal{background:var(--white);border-radius:26px;padding:32px;max-width:320px;width:100%;text-align:center;box-shadow:0 30px 60px -20px rgba(4,24,95,.5);position:relative;}
+.cadet-modal .close-x{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--ink-soft);font-weight:700;}
+.cadet-modal .avatar.large{margin:0 auto 16px;}
+.cadet-modal h4{margin:0;font-size:1.15rem;font-weight:800;color:var(--ink);}
+.cadet-modal .cm-rank{display:inline-block;margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--blue);font-weight:600;background:var(--paper);padding:4px 10px;border-radius:8px;}
+.cadet-modal .cm-role{margin:10px 0 0;color:var(--ink-soft);font-size:.88rem;}
 
 body{min-width:0;}
 main{max-width:1180px;}
@@ -258,7 +268,7 @@ img{max-width:100%;}
 </div>
 
 <div class="card"><h3>Company Leadership</h3>
-  <div class="org-chart"><div><div class="org-tier-title">Company Command</div><div class="org-tier"><div class="org-card"><span class="rank">C/1LT</span><span class="oname">Cadet Name</span><span class="role">Executive Officer</span></div><div class="org-card command"><span class="rank">C/CPT</span><span class="oname">Cadet Name</span><span class="role">Charlie Company Commander</span></div><div class="org-card"><span class="rank">C/1SG</span><span class="oname">Cadet Name</span><span class="role">First Sergeant</span></div></div></div><div><div class="org-tier-title">Platoon Leadership</div><div class="org-tier"><div class="org-tier-group"><div class="org-card"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">1st Platoon Leader</span></div><div class="org-card"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">1st Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div><div class="org-tier-group"><div class="org-card"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">2nd Platoon Leader</span></div><div class="org-card"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">2nd Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div><div class="org-tier-group"><div class="org-card"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">3rd Platoon Leader</span></div><div class="org-card"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">3rd Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div></div></div></div>
+  <div class="org-chart"><div><div class="org-tier-title">Company Command</div><div class="org-tier"><div class="org-card" onclick="openCadet('Charlie-xo')"><span class="rank">C/1LT</span><span class="oname">Cadet Name</span><span class="role">Executive Officer</span></div><div class="org-card command" onclick="openCadet('Charlie-cc')"><span class="rank">C/CPT</span><span class="oname">Cadet Name</span><span class="role">Charlie Company Commander</span></div><div class="org-card" onclick="openCadet('Charlie-1sg')"><span class="rank">C/1SG</span><span class="oname">Cadet Name</span><span class="role">First Sergeant</span></div></div></div><div><div class="org-tier-title">Platoon Leadership</div><div class="org-tier"><div class="org-tier-group"><div class="org-card" onclick="openCadet('Charlie-1st-pl')"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">1st Platoon Leader</span></div><div class="org-card" onclick="openCadet('Charlie-1st-sgt')"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">1st Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div><div class="org-tier-group"><div class="org-card" onclick="openCadet('Charlie-2nd-pl')"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">2nd Platoon Leader</span></div><div class="org-card" onclick="openCadet('Charlie-2nd-sgt')"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">2nd Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div><div class="org-tier-group"><div class="org-card" onclick="openCadet('Charlie-3rd-pl')"><span class="rank">C/2LT</span><span class="oname">Cadet Name</span><span class="role">3rd Platoon Leader</span></div><div class="org-card" onclick="openCadet('Charlie-3rd-sgt')"><span class="rank">C/SFC</span><span class="oname">Cadet Name</span><span class="role">3rd Platoon Sergeant</span></div><div class="squad-chips"><span class="squad-chip">C/SGT Squad 1</span><span class="squad-chip">C/SGT Squad 2</span><span class="squad-chip">C/SGT Squad 3</span></div></div></div></div></div>
   <p class="note">Sample org chart shown &mdash; replace names and ranks with current company leadership.</p>
 </div>
 
@@ -269,6 +279,31 @@ img{max-width:100%;}
   </div>
   <p class="note">Sample roster format shown (30 cadets) &mdash; replace with the current active company roster.</p>
 </div>
+
+<div class="cadet-modal-backdrop" id="cadetModalBackdrop" onclick="if(event.target===this) closeCadet()">
+  <div class="cadet-modal">
+    <div class="close-x" onclick="closeCadet()">&#10005;</div>
+    <div class="avatar large" id="cadetModalAvatar">PHOTO</div>
+    <h4 id="cadetModalName">Cadet Name</h4>
+    <span class="cm-rank" id="cadetModalRank">C/CPT</span>
+    <p class="cm-role" id="cadetModalRole">Role</p>
+  </div>
+</div>
+<script>
+var CADETS_Charlie = {"Charlie-xo": {"rank": "C/1LT", "name": "Cadet Name", "role": "Executive Officer"}, "Charlie-cc": {"rank": "C/CPT", "name": "Cadet Name", "role": "Charlie Company Commander"}, "Charlie-1sg": {"rank": "C/1SG", "name": "Cadet Name", "role": "First Sergeant"}, "Charlie-1st-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "1st Platoon Leader"}, "Charlie-1st-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "1st Platoon Sergeant"}, "Charlie-2nd-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "2nd Platoon Leader"}, "Charlie-2nd-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "2nd Platoon Sergeant"}, "Charlie-3rd-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "3rd Platoon Leader"}, "Charlie-3rd-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "3rd Platoon Sergeant"}};
+function openCadet(id) {
+  var c = CADETS_Charlie[id];
+  if (!c) return;
+  document.getElementById('cadetModalName').textContent = c.name;
+  document.getElementById('cadetModalRank').textContent = c.rank;
+  document.getElementById('cadetModalRole').textContent = c.role;
+  document.getElementById('cadetModalBackdrop').classList.add('open');
+}
+function closeCadet() {
+  document.getElementById('cadetModalBackdrop').classList.remove('open');
+}
+</script>
+
 
 </main>
 

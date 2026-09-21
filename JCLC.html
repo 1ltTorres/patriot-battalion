@@ -168,6 +168,16 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .staff-role-card .who .rank{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--blue);font-weight:600;background:var(--paper);padding:3px 8px;border-radius:6px;}
 .staff-role-card .who .name{font-weight:800;font-size:.94rem;}
 .staff-role-card p{margin:0;color:var(--ink-soft);font-size:.85rem;line-height:1.55;}
+.org-card{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
+.org-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(11,19,48,.35);}
+.cadet-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(4,24,95,.6);z-index:999;align-items:center;justify-content:center;padding:20px;}
+.cadet-modal-backdrop.open{display:flex;}
+.cadet-modal{background:var(--white);border-radius:26px;padding:32px;max-width:320px;width:100%;text-align:center;box-shadow:0 30px 60px -20px rgba(4,24,95,.5);position:relative;}
+.cadet-modal .close-x{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--ink-soft);font-weight:700;}
+.cadet-modal .avatar.large{margin:0 auto 16px;}
+.cadet-modal h4{margin:0;font-size:1.15rem;font-weight:800;color:var(--ink);}
+.cadet-modal .cm-rank{display:inline-block;margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--blue);font-weight:600;background:var(--paper);padding:4px 10px;border-radius:8px;}
+.cadet-modal .cm-role{margin:10px 0 0;color:var(--ink-soft);font-size:.88rem;}
 
 body{min-width:0;}
 main{max-width:1180px;}
@@ -231,7 +241,7 @@ img{max-width:100%;}
 <main>
 
 <div class="crumbs">Extracurriculars <b>/</b> JCLC</div>
-<div class="page-head"><h1>JCLC</h1><p class="tagline">Junior Cadet Leadership Challenge &mdash; a summer leadership camp open to top cadets in the Battalion.</p></div>
+<div class="page-head"><h1>JCLC</h1><p class="tagline">JROTC Cadet Leadership Camp &mdash; a summer leadership camp open to top cadets in the Battalion.</p></div>
 <div class="info-strip">
   <div class="pill">Camp Dates&nbsp;<b>June 8 &ndash; 19</b></div>
   <div class="pill">Duration&nbsp;<b>2 Weeks</b></div>
@@ -240,7 +250,7 @@ img{max-width:100%;}
 <div class="two-col">
   <div class="card">
     <h3>What is JCLC?</h3>
-    <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.65;margin:0 0 16px;">The Junior Cadet Leadership Challenge (JCLC) is a summer leadership camp where cadets from across the region train together in leadership, teamwork, and outdoor skills &mdash; including rappelling, orienteering, team-building obstacle courses, and small-unit leadership exercises. It's one of the most demanding and rewarding experiences a cadet can have in the program, and it's open by application to cadets recommended by the instructor staff.</p>
+    <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.65;margin:0 0 16px;">The JROTC Cadet Leadership Camp (JCLC) is a summer leadership camp where cadets from across the region train together in leadership, teamwork, and outdoor skills &mdash; including rappelling, orienteering, team-building obstacle courses, and small-unit leadership exercises. It's one of the most demanding and rewarding experiences a cadet can have in the program, and it's open by application to cadets recommended by the instructor staff.</p>
     <div class="award-tag" style="display:inline-flex;">&#11088;&nbsp;Cadets who attend JCLC have a higher chance of advancing in rank and becoming an officer.</div>
   </div>
   <div class="card"><h3>Previous Year</h3>
